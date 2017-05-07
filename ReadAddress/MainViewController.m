@@ -20,6 +20,9 @@
 
 
 #import "ZZGPopoverView.h"
+#import "TableViewController.h"
+
+#import "PopTableViewController.h"
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource,ZZGPopoverViewDelegate>
 
@@ -51,6 +54,8 @@
     [self.myData addObject:@"获取通讯录数据"];
     [self.myData addObject:@"从下向上Sheet"];
     [self.myData addObject:@"从右向左Sheet"];
+    [self.myData addObject:@"TableView联动"];
+    [self.myData addObject:@"PopTableView联动"];
 }
 -(void)initPopoverData {
     ZZGPopoverAction * o1 = [ZZGPopoverAction actionWithTitle:@"新增客户" forimage:[UIImage imageNamed:@"right_menu_multichat"]];
@@ -76,12 +81,23 @@
     
     
     UIButton * rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    rightBtn.frame = CGRectMake(0, 0, 50, 50);
+    rightBtn.frame = CGRectMake(0, 0, 44, 44);
     rightBtn.backgroundColor = [UIColor redColor];
     [rightBtn addTarget:self action:@selector(barClick:) forControlEvents:UIControlEventTouchUpInside];
     UIBarButtonItem * barItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
     self.navigationItem.rightBarButtonItem = barItem;
+    
+    
+    UIButton * rightBtn1 = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightBtn1.frame = CGRectMake(100, 100, 50, 50);
+    rightBtn1.backgroundColor = [UIColor redColor];
+    [rightBtn1 addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:rightBtn1];
 }
+-(void)btnClick:(UIButton *)sender {
+    [self barClick:sender];
+}
+
 -(void)barClick:(UIButton *)sender {
     NSLog(@"-------");
     ZZGPopoverView *popoverView = [ZZGPopoverView popoverView];
@@ -126,6 +142,14 @@
     if (indexPath.row == 3) {
         RightToleftController * right = [[RightToleftController alloc] init];
         [self.navigationController pushViewController:right animated:YES];
+    }
+    if (indexPath.row == 4) {
+        TableViewController * tables = [[TableViewController alloc] init];
+        [self.navigationController pushViewController:tables animated:YES];
+    }
+    if (indexPath.row == 5) {
+        PopTableViewController * popTable = [[PopTableViewController alloc] init];
+        [self.navigationController pushViewController:popTable animated:YES];
     }
 }
 

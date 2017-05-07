@@ -52,7 +52,7 @@
  */
 - (void)initSubViews{
     self.contentView = [[UIView alloc]init];
-    self.contentView.backgroundColor = [UIColor redColor];
+    self.contentView.backgroundColor = [UIColor whiteColor];
     self.contentView.frame = CGRectMake(0, SCREEN_HEIGHT, SCREEN_WIDTH, self.contentShift);
     [self addSubview:self.contentView];
 }

@@ -114,6 +114,9 @@ float DegreesToRadians(float angle) {
     _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.separatorColor = [PopoverViewCell bottomLineColorForStyle:_style];
     [self addSubview:_tableView];
+    
+    
+    self.backgroundColor = [UIColor redColor];
 }
 
 /*! @brief 显示弹窗指向某个点,  */
@@ -185,6 +188,7 @@ float DegreesToRadians(float angle) {
                      clockwise:YES];
     // 箭头向上时的箭头位置
     if (_isUpward) {
+        
         [maskPath addLineToPoint:CGPointMake(arrowPoint.x - arrowWidth/2, kPopoverViewArrowHeight)];
         [maskPath addQuadCurveToPoint:CGPointMake(arrowPoint.x - arrowCornerRadius, arrowCornerRadius)
                          controlPoint:CGPointMake(arrowPoint.x - arrowWidth/2 + arrowBottomCornerRadius, kPopoverViewArrowHeight)];
