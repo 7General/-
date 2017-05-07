@@ -22,6 +22,9 @@
 		845B45791EBC188700ADD03E /* SheetTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B45781EBC188700ADD03E /* SheetTopViewController.m */; };
 		845B457C1EBC1C1200ADD03E /* RightToleftController.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B457B1EBC1C1200ADD03E /* RightToleftController.m */; };
 		845B45801EBC1CA200ADD03E /* ZZGSheetRight.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B457F1EBC1CA200ADD03E /* ZZGSheetRight.m */; };
+		A43507991EBEC6A70023D22F /* ZZGPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = A43507981EBEC6A70023D22F /* ZZGPopoverView.m */; };
+		A435079C1EBEC6D60023D22F /* ZZGPopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A435079B1EBEC6D60023D22F /* ZZGPopoverAction.m */; };
+		A435079F1EBECBCF0023D22F /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A435079E1EBECBCF0023D22F /* PopoverViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -54,6 +57,12 @@
 		845B457B1EBC1C1200ADD03E /* RightToleftController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightToleftController.m; sourceTree = "<group>"; };
 		845B457E1EBC1CA200ADD03E /* ZZGSheetRight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZGSheetRight.h; sourceTree = "<group>"; };
 		845B457F1EBC1CA200ADD03E /* ZZGSheetRight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZGSheetRight.m; sourceTree = "<group>"; };
+		A43507971EBEC6A70023D22F /* ZZGPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZGPopoverView.h; sourceTree = "<group>"; };
+		A43507981EBEC6A70023D22F /* ZZGPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZGPopoverView.m; sourceTree = "<group>"; };
+		A435079A1EBEC6D60023D22F /* ZZGPopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZGPopoverAction.h; sourceTree = "<group>"; };
+		A435079B1EBEC6D60023D22F /* ZZGPopoverAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZGPopoverAction.m; sourceTree = "<group>"; };
+		A435079D1EBECBCF0023D22F /* PopoverViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopoverViewCell.h; sourceTree = "<group>"; };
+		A435079E1EBECBCF0023D22F /* PopoverViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopoverViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +106,7 @@
 		845B44FD1EB970CD00ADD03E /* ReadAddress */ = {
 			isa = PBXGroup;
 			children = (
+				A43507961EBEC6810023D22F /* PopoverView */,
 				845B457D1EBC1C5A00ADD03E /* SheepRightToLeft */,
 				845B45211EB9D0D700ADD03E /* dropSheet */,
 				845B45161EB970E500ADD03E /* Main */,
@@ -174,6 +184,19 @@
 				25F1FF9302048927CC085EA6 /* Pods-ReadAddress.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		A43507961EBEC6810023D22F /* PopoverView */ = {
+			isa = PBXGroup;
+			children = (
+				A43507971EBEC6A70023D22F /* ZZGPopoverView.h */,
+				A43507981EBEC6A70023D22F /* ZZGPopoverView.m */,
+				A435079A1EBEC6D60023D22F /* ZZGPopoverAction.h */,
+				A435079B1EBEC6D60023D22F /* ZZGPopoverAction.m */,
+				A435079D1EBECBCF0023D22F /* PopoverViewCell.h */,
+				A435079E1EBECBCF0023D22F /* PopoverViewCell.m */,
+			);
+			name = PopoverView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,10 +326,13 @@
 				845B45791EBC188700ADD03E /* SheetTopViewController.m in Sources */,
 				845B452A1EB9D8E700ADD03E /* ZZGDropCell.m in Sources */,
 				845B45061EB970CD00ADD03E /* ViewController.m in Sources */,
+				A43507991EBEC6A70023D22F /* ZZGPopoverView.m in Sources */,
+				A435079C1EBEC6D60023D22F /* ZZGPopoverAction.m in Sources */,
 				845B451D1EB9765700ADD03E /* ReadAddressViewController.m in Sources */,
 				845B45031EB970CD00ADD03E /* AppDelegate.m in Sources */,
 				845B45761EBC15B400ADD03E /* WakeAddressViewController.m in Sources */,
 				845B45271EB9D44D00ADD03E /* ZZGDropView.m in Sources */,
+				A435079F1EBECBCF0023D22F /* PopoverViewCell.m in Sources */,
 				845B45001EB970CD00ADD03E /* main.m in Sources */,
 				845B457C1EBC1C1200ADD03E /* RightToleftController.m in Sources */,
 				845B451A1EB970FA00ADD03E /* MainViewController.m in Sources */,

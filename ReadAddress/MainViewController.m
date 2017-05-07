@@ -18,11 +18,16 @@
 #import "SheetTopViewController.h"
 #import "RightToleftController.h"
 
-@interface MainViewController ()<UITableViewDelegate,UITableViewDataSource>
+
+#import "ZZGPopoverView.h"
+
+@interface MainViewController ()<UITableViewDelegate,UITableViewDataSource,ZZGPopoverViewDelegate>
 
 
 
 @property (nonatomic, strong) NSMutableArray *myData;
+
+@property (nonatomic, strong) NSMutableArray *popoverData;
 
 @end
 
@@ -33,11 +38,27 @@
     }
     return _myData;
 }
+
+-(NSMutableArray *)popoverData {
+    if (_popoverData == nil) {
+        _popoverData = [NSMutableArray array];
+    }
+    return _popoverData;
+}
+
 -(void)initMyDataTitle {
     [self.myData addObject:@"调用通讯录页面"];
     [self.myData addObject:@"获取通讯录数据"];
     [self.myData addObject:@"从下向上Sheet"];
     [self.myData addObject:@"从右向左Sheet"];
+}
+-(void)initPopoverData {
+    ZZGPopoverAction * o1 = [ZZGPopoverAction actionWithTitle:@"新增客户" forimage:[UIImage imageNamed:@"right_menu_multichat"]];
+    ZZGPopoverAction * o2 = [ZZGPopoverAction actionWithTitle:@"加好友" forimage:[UIImage imageNamed:@"right_menu_addFri"]];
+    ZZGPopoverAction * o3 = [ZZGPopoverAction actionWithTitle:@"扫一扫" forimage:[UIImage imageNamed:@"right_menu_QR"]];
+    ZZGPopoverAction * o4 = [ZZGPopoverAction actionWithTitle:@"面对面快传" forimage:[UIImage imageNamed:@"right_menu_facetoface"]];
+    ZZGPopoverAction * o5 = [ZZGPopoverAction actionWithTitle:@"付款" forimage:[UIImage imageNamed:@"right_menu_payMoney"]];
+    [self.popoverData addObjectsFromArray:@[o1,o2,o3,o4,o5]];
 }
 
 
@@ -46,22 +67,32 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    /*
-    char a[] = "123";
-    char b[] = "456";
-    int c;
-    c = atoi(a) + atoi(b);
-    printf("c=%d\n", c);
-    */
-    
     [self initMyDataTitle];
+    [self initPopoverData];
     UITableView * tableView = [[UITableView alloc] initWithFrame:self.view.bounds style:UITableViewStylePlain];
     tableView.delegate = self;
     tableView.dataSource = self;
     [self.view addSubview:tableView];
     
-   
+    
+    UIButton * rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    rightBtn.frame = CGRectMake(0, 0, 50, 50);
+    rightBtn.backgroundColor = [UIColor redColor];
+    [rightBtn addTarget:self action:@selector(barClick:) forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem * barItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    self.navigationItem.rightBarButtonItem = barItem;
 }
+-(void)barClick:(UIButton *)sender {
+    NSLog(@"-------");
+    ZZGPopoverView *popoverView = [ZZGPopoverView popoverView];
+    popoverView.popDelegate = self;
+    [popoverView showToView:sender withActions:self.popoverData];
+}
+#pragma mark - ZZGPopoverViewDELEGATE
+-(void)popoverView:(ZZGPopoverView *)popView didSelectIndex:(NSIndexPath *)indexPath {
+    NSLog(@"--------%ld",indexPath.row);
+}
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return self.myData.count;
