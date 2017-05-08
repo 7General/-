@@ -167,7 +167,9 @@ CGFloat const SureButtonHeight = 44.f;
     NSMutableArray * arys = @[@"Q",@"Q",@"Q",@"Q",@"Q"].mutableCopy;
     for (NSInteger index = 0; index < self.titleMenuArry.count; index++) {
         /*! 添加默认 */
-        [self.StateCellArry addObject:arys];
+        NSMutableArray * arrys = [[NSMutableArray alloc] init];
+        [arrys addObjectsFromArray:arys];
+        [self.StateCellArry addObject:arrys];
         
         /**默认添加全部为0*/
         [self.currentSelectedRows addObject:@(0)];
