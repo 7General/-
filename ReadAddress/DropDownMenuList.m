@@ -76,42 +76,24 @@ CGFloat const SureButtonHeight = 44.f;
 @property (nonatomic) CGSize  viewSize;
 /*! 初始化选中状态数组 */
 @property (nonatomic, strong) NSMutableArray *selectStateArry;
-/*! 记录选中的cell */
+/*! 标识选中cell的状态 */
 @property (nonatomic, strong) NSMutableArray *StateCellArry;
+/*! 记录选中的cell的用于发送请求 */
+@property (nonatomic, strong) NSMutableArray * cellSelectArry;
+
 
 @end
 
 @implementation DropDownMenuList
+#pragma mark - lazy
 
-/**
- *  初始化变量
- *
- *  @param origin 原点
- *  @param height 导航栏高度
- *
- */
--(instancetype)initWithOrgin:(CGPoint)origin andHeight:(CGFloat)height {
-    self = [super initWithFrame:CGRectMake(origin.x, origin.y, DDMWIDTH, height)];
-    if (self) {
-        self.leftTableView = [[UITableView alloc] initWithFrame:CGRectMake(origin.x, 0, DDMWIDTH, 0) style:UITableViewStylePlain];
-        self.leftTableView.delegate = self;
-        self.leftTableView.dataSource = self;
-        self.leftTableView.rowHeight = 44;
-        [self.DropDownMenuView addSubview:self.leftTableView];
-        self.animationTime = 0.15;
-        self.titleMenuHeight = height;
-        /*! 测试数据 */
-        //self.selectStateArry = @[@"Q",@"Q",@"Q",@"Q",@"Q"].mutableCopy;
-    }
-    
-    return self;
-}
 -(NSMutableArray *)selectStateArry {
     if (_selectStateArry == nil) {
         _selectStateArry = [NSMutableArray array];
     }
     return _selectStateArry;
 }
+
 -(NSMutableArray *)StateCellArry {
     if (_StateCellArry == nil) {
         _StateCellArry = [NSMutableArray array];
@@ -133,12 +115,41 @@ CGFloat const SureButtonHeight = 44.f;
     return _titles;
 }
 
+-(NSMutableArray *)cellSelectArry {
+    if (_cellSelectArry == nil) {
+        _cellSelectArry = [NSMutableArray array];
+    }
+    return _cellSelectArry;
+}
+
+
+
+/**
+ *  初始化变量
+ *
+ *  @param origin 原点
+ *  @param height 导航栏高度
+ *
+ */
+-(instancetype)initWithOrgin:(CGPoint)origin andHeight:(CGFloat)height {
+    self = [super initWithFrame:CGRectMake(origin.x, origin.y, DDMWIDTH, height)];
+    if (self) {
+        self.leftTableView = [[UITableView alloc] initWithFrame:CGRectMake(origin.x, 0, DDMWIDTH, 0) style:UITableViewStylePlain];
+        self.leftTableView.delegate = self;
+        self.leftTableView.dataSource = self;
+        self.leftTableView.rowHeight = 44;
+        [self.DropDownMenuView addSubview:self.leftTableView];
+        self.animationTime = 0.15;
+        self.titleMenuHeight = height;
+    }
+    return self;
+}
+
 //##################################
 +(instancetype)show:(CGPoint)orgin andHeight:(CGFloat)height {
     return [[self alloc] initWithOrgin:orgin andHeight:height];
 }
-- (instancetype)initWithFrame:(CGRect)frame
-{
+- (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
     if (self) {
         [self initView];
@@ -161,25 +172,31 @@ CGFloat const SureButtonHeight = 44.f;
     
     /**选中数据,根据有多少列，则组成由多少数据*/
     self.currentSelectedRows = [[NSMutableArray alloc] initWithCapacity:self.titleMenuArry.count];
+    /*! 标识选中的行状态 */
+    self.StateCellArry = [[NSMutableArray alloc] initWithCapacity:self.titleMenuArry.count];
+    /*! 声明记录选中行的记录用于发用网络请求数据 */
+    //self.cellSelectArry = [[NSMutableArray alloc] initWithCapacity:self.titleMenuArry.count];
     
     CGFloat  titleBtnWidth = DDMWIDTH / self.titleMenuArry.count;
     
-    NSMutableArray * arys = @[@"Q",@"Q",@"Q",@"Q",@"Q"].mutableCopy;
     for (NSInteger index = 0; index < self.titleMenuArry.count; index++) {
-        /*! 添加默认 */
-        NSMutableArray * arrys = [[NSMutableArray alloc] init];
-        [arrys addObjectsFromArray:arys];
-        [self.StateCellArry addObject:arrys];
-        
         /**默认添加全部为0*/
         [self.currentSelectedRows addObject:@(0)];
         // 每一列对应返回的数据
         NSInteger column = [_dataSource menu:self numberOfRowsInColum:index];
+        
         if (column > 0) {
             HZIndexPath * path = [HZIndexPath indexPathWithColumn:index row:0];
             NSString * titleString = [_dataSource menu:self titleForRowAtIndexPath:path];
             [self.titles addObject:titleString];
         }
+        /*! 添加默认选项数据 */
+        NSMutableArray * arrys = [[NSMutableArray alloc] init];
+        for (NSInteger Cl = 0; Cl < column; Cl++) {
+            [arrys addObject:@"Q"];
+        }
+        [self.StateCellArry addObject:arrys];
+        
         
         self.titleButton = [UIButton buttonWithType:UIButtonTypeCustom];
         [self.titleButton setImage:[UIImage imageNamed:@"rightImage_state"] forState:UIControlStateNormal];
@@ -190,7 +207,6 @@ CGFloat const SureButtonHeight = 44.f;
         
         [self.titleButton setTitle:self.titleMenuArry[index] forState:UIControlStateNormal];
         [self.titleButton.titleLabel setFont:[UIFont systemFontOfSize:17]];
-        
         [self.titleButton setTitleColor:DDMColor(18, 108, 255) forState:UIControlStateNormal];
         [self.titleButton setTitleColor:DDMColor(18, 108, 255) forState:UIControlStateHighlighted];
         [self.titleButton setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
@@ -232,7 +248,8 @@ CGFloat const SureButtonHeight = 44.f;
     if (sender.selected) {
        // 1:设置当前选中的状态
         self.selectStateArry = self.StateCellArry[self.currrntSelectedColumn - 1100];
-        NSLog(@"---取出当前value：%@",self.selectStateArry);
+       
+        
         [self setupCover];
         self.DropDownMenuView.backgroundColor = DDMColor(255, 255, 255);
         
@@ -252,7 +269,7 @@ CGFloat const SureButtonHeight = 44.f;
         [self.DropDownMenuView addSubview:self.sureButton];
     }
     
-    [self.leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
+    [self.leftTableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:NO scrollPosition:UITableViewScrollPositionTop];
     // 代理点击事件
     if (self.delegate && [self.delegate respondsToSelector:@selector(menu:didSelectTitleAtColumn:)]) {
         [self.delegate menu:self didSelectTitleAtColumn:sender.tag];
@@ -264,7 +281,20 @@ CGFloat const SureButtonHeight = 44.f;
 }
 /*! 确定事件 */
 -(void)sureClick {
-   
+    [self.cellSelectArry removeAllObjects];
+    NSInteger Column = self.currrntSelectedColumn - 1100;
+    NSArray * selectArry = self.StateCellArry[Column];
+    NSLog(@"----%@",selectArry);
+    
+    [selectArry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        NSString * items = (NSString *)obj;
+        if ([items isEqualToString:@"L"]) {
+            HZIndexPath * path = [HZIndexPath indexPathWithColumn:Column row:idx];
+            NSString * str = [self.dataSource menu:self titleForRowAtIndexPath:path];
+            [self.cellSelectArry addObject:str];
+        }
+    }];
+    NSLog(@"-------》》%@",self.cellSelectArry);
 }
 
 
@@ -367,9 +397,11 @@ CGFloat const SureButtonHeight = 44.f;
 
 -(UITableViewCell * )tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     DropDownCell * cell = [DropDownCell cellWithTableView:tableView];
+    HZIndexPath * path = [HZIndexPath indexPathWithColumn:self.currrntSelectedColumn - 1100 row:indexPath.row];
     /*! 更新选中状态 */
     __weak typeof(self) weakSelf = self;
     [cell setStateBlock:^(UIButton *statButton) {
+        NSInteger coloum = weakSelf.currrntSelectedColumn - 1100 ;
         if ([statButton.titleLabel.text isEqualToString:@"no"]) {
             [statButton setTitle:@"yes" forState:UIControlStateNormal];
             weakSelf.selectStateArry[indexPath.row] = @"L";
@@ -377,13 +409,9 @@ CGFloat const SureButtonHeight = 44.f;
             [statButton setTitle:@"no" forState:UIControlStateNormal];
             weakSelf.selectStateArry[indexPath.row] = @"Q";
         }
-        NSInteger coloum = weakSelf.currrntSelectedColumn - 1100 ;
-        NSLog(@"------->>%ld---->>>更新之前%@",coloum,weakSelf.StateCellArry);
         [weakSelf.StateCellArry replaceObjectAtIndex:coloum withObject:weakSelf.selectStateArry];
-//        WeakSelf.StateCellArry[coloum] = WeakSelf.selectStateArry;
-        NSLog(@"------->>%ld---->>>更新之后%@",coloum,weakSelf.StateCellArry);
     }];
-    HZIndexPath * path = [HZIndexPath indexPathWithColumn:self.currrntSelectedColumn - 1100 row:indexPath.row];
+    
     // 文字
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(menu:titleForRowAtIndexPath:)]) {
         NSString * str = [self.dataSource menu:self titleForRowAtIndexPath:path];

@@ -96,15 +96,8 @@
     [rightBtn1 addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:rightBtn1];
     
+   
     
-    NSMutableArray * arry1 = @[
-      @[@"Q",@"Q"],
-      @[@"Q",@"Q"],
-      @[@"Q",@"Q"]].mutableCopy;
-    NSMutableArray * ar2 = @[@"AA",@"bb"].mutableCopy;
-    ar2[0] = @"VVVV";
-    arry1[0] = ar2;
-    NSLog(@"ARR%@",arry1);
     
 }
 -(void)btnClick:(UIButton *)sender {
