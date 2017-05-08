@@ -23,6 +23,7 @@
 #import "TableViewController.h"
 
 #import "PopTableViewController.h"
+#import "RerequesController.h"
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource,ZZGPopoverViewDelegate>
 
@@ -56,6 +57,7 @@
     [self.myData addObject:@"从右向左Sheet"];
     [self.myData addObject:@"TableView联动"];
     [self.myData addObject:@"PopTableView联动"];
+    [self.myData addObject:@"多个tableview复用"];
 }
 -(void)initPopoverData {
     ZZGPopoverAction * o1 = [ZZGPopoverAction actionWithTitle:@"新增客户" forimage:[UIImage imageNamed:@"right_menu_multichat"]];
@@ -93,6 +95,17 @@
     rightBtn1.backgroundColor = [UIColor redColor];
     [rightBtn1 addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:rightBtn1];
+    
+    
+    NSMutableArray * arry1 = @[
+      @[@"Q",@"Q"],
+      @[@"Q",@"Q"],
+      @[@"Q",@"Q"]].mutableCopy;
+    NSMutableArray * ar2 = @[@"AA",@"bb"].mutableCopy;
+    ar2[0] = @"VVVV";
+    arry1[0] = ar2;
+    NSLog(@"ARR%@",arry1);
+    
 }
 -(void)btnClick:(UIButton *)sender {
     [self barClick:sender];
@@ -150,6 +163,10 @@
     if (indexPath.row == 5) {
         PopTableViewController * popTable = [[PopTableViewController alloc] init];
         [self.navigationController pushViewController:popTable animated:YES];
+    }
+    if (indexPath.row == 6) {
+        RerequesController * req = [[RerequesController alloc] init];
+        [self.navigationController pushViewController:req animated:YES];
     }
 }
 
