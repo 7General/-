@@ -25,6 +25,8 @@
 #import "PopTableViewController.h"
 #import "RerequesController.h"
 
+#import "UIView+UIViewUtils.h"
+
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource,ZZGPopoverViewDelegate>
 
 
@@ -101,7 +103,45 @@
     
 }
 -(void)btnClick:(UIButton *)sender {
-    [self barClick:sender];
+//    [self barClick:sender];
+    /*! 带交表提示 正确  自动消失 */
+    [self.view showHUDIndicatorViewSuccessAtCenter:@"dddddd"];
+    /*! 带角标提示 错误  自动消失 */
+//    [self.view showHUDIndicatorViewErrorAtCenter:@"dddddd"];
+    /*! 提示语句，不带任何图标，自动消失 */
+    //[self.view showHUDIndicatorLabelAtCenter:@"提示语句"];
+    
+    /*! 菊花转，后面有黑色影音 -网络加载*/
+    /*
+    [self.view showHUDIndicatorAtCenter:@"菊花转"];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [self.view hideHUDIndicatorViewAtCenter];
+    });
+     */
+    
+//    
+//    [self.view showHUDIndicatorViewAtCenter:@"正在加载"];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+////        [self.view hideHUDIndicatorViewAtCenter];
+//        [self.view showHUDIndicatorLabelAtCenter:@"网络加载失败"];
+//    });
+    
+    
+//    [self.view showHUDIndicatorViewAtCenter:@"警告" yOffset:100];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+////        [self.view hideHUDIndicatorViewAtCenter];
+//        [self.view showHUDIndicatorLabelAtCenter:@"网络加载失败"];
+//    });
+    
+    
+//    [self.view showHUDIndicatorViewETaxAtCenter];
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+////        [self.view hideHUDIndicatorViewAtCenter];
+////         [self.view showHUDIndicatorLabelAtCenter:@"网络加载失败"];
+//        [self.view showHUDIndicatorViewSuccessAtCenter:@"加载成功"];
+//    });
+    
+    
 }
 
 -(void)barClick:(UIButton *)sender {
