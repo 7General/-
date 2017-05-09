@@ -255,11 +255,9 @@ CGFloat const SureButtonHeight = 44.f;
                 CGRect frame = CGRectMake(0, self.frame.size.height + self.frame.origin.y, DDMWIDTH, DDMHEIGHT);
                 self.DropDownMenuView.frame = frame;
                 [CurrentWindow addSubview:self.DropDownMenuView];
-                self.moreView = [[MoreView alloc] initWithFrame:CGRectMake(0, 0, DDMWIDTH, DDMHEIGHT - self.frame.size.height - self.frame.origin.y)];
+                self.moreView = [[MoreView alloc] initWithFrame:CGRectMake(0, 0, DDMWIDTH, DDMHEIGHT - self.frame.size.height - self.frame.origin.y - 44)];
                 self.moreView.backgroundColor = [UIColor redColor];
                 [self.DropDownMenuView addSubview:self.moreView];
-            
-            
             return;
         }
         // 1:设置当前选中的状态
@@ -432,18 +430,7 @@ CGFloat const SureButtonHeight = 44.f;
         NSInteger coloum = weakSelf.currrntSelectedColumn - 1100;
         /*! 点击不限清空选中栏目 */
         if (indexPath.row == 0) {
-//            NSMutableArray * selectArry = weakSelf.StateCellArry[coloum];
-//            [selectArry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//                NSString * objs = (NSString *)obj;
-//                objs = @"Q";
-//            }];
-//        [weakSelf.selectStateArry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            NSString * items = (NSString *)obj;
-//            items = @"Q";
-//            NSLog(@"-------->%@",weakSelf.selectStateArry);
-//        }];
             weakSelf.selectStateArry = [weakSelf repleaceWithArry:weakSelf.selectStateArry];
-            
         }else {
             if ([statButton.titleLabel.text isEqualToString:@"no"]) {
                 [statButton setTitle:@"yes" forState:UIControlStateNormal];
@@ -459,10 +446,13 @@ CGFloat const SureButtonHeight = 44.f;
     
     // 文字
     if (self.dataSource && [self.dataSource respondsToSelector:@selector(menu:titleForRowAtIndexPath:)]) {
+       
+        cell.stateButton.hidden = indexPath.row != 0 ? NO : YES;
         NSString * str = [self.dataSource menu:self titleForRowAtIndexPath:path];
         [cell setCellTitles:str];
         NSString * strS = self.selectStateArry[indexPath.row];
         [cell setCellState:strS];
+        
     }
     return cell;
 }

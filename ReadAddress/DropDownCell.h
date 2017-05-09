@@ -11,6 +11,8 @@
 typedef void(^stateSelectClik)(UIButton * statButton);
 
 @interface DropDownCell : UITableViewCell
+@property (nonatomic, weak) UIButton *stateButton;
+
 +(instancetype)cellWithTableView:(UITableView *)tableview;
 @property (nonatomic, copy) stateSelectClik stateBlock;
 -(void)setStateBlock:(stateSelectClik)stateBlock;

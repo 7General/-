@@ -15,7 +15,7 @@
 @interface DropDownCell()
 
 @property (nonatomic, weak) UILabel *titleLabel;
-@property (nonatomic, weak) UIButton *stateButton;
+
 @property (nonatomic, weak) UIButton *currentButton;
 
 @end
