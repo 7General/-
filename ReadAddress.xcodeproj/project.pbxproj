@@ -26,6 +26,7 @@
 		845B45871EC004CF00ADD03E /* DropDownMenuList.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B45861EC004CF00ADD03E /* DropDownMenuList.m */; };
 		845B458A1EC05E8200ADD03E /* DropDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B45891EC05E8200ADD03E /* DropDownCell.m */; };
 		845B462F1EC16EEB00ADD03E /* MoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B462E1EC16EEB00ADD03E /* MoreView.m */; };
+		845B46321EC19C6200ADD03E /* MoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B46311EC19C6200ADD03E /* MoreCell.m */; };
 		A43507991EBEC6A70023D22F /* ZZGPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = A43507981EBEC6A70023D22F /* ZZGPopoverView.m */; };
 		A435079C1EBEC6D60023D22F /* ZZGPopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A435079B1EBEC6D60023D22F /* ZZGPopoverAction.m */; };
 		A435079F1EBECBCF0023D22F /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A435079E1EBECBCF0023D22F /* PopoverViewCell.m */; };
@@ -79,6 +80,8 @@
 		845B45891EC05E8200ADD03E /* DropDownCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownCell.m; sourceTree = "<group>"; };
 		845B462D1EC16EEB00ADD03E /* MoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreView.h; sourceTree = "<group>"; };
 		845B462E1EC16EEB00ADD03E /* MoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreView.m; sourceTree = "<group>"; };
+		845B46301EC19C6200ADD03E /* MoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreCell.h; sourceTree = "<group>"; };
+		845B46311EC19C6200ADD03E /* MoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreCell.m; sourceTree = "<group>"; };
 		A43507971EBEC6A70023D22F /* ZZGPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZGPopoverView.h; sourceTree = "<group>"; };
 		A43507981EBEC6A70023D22F /* ZZGPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZGPopoverView.m; sourceTree = "<group>"; };
 		A435079A1EBEC6D60023D22F /* ZZGPopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZGPopoverAction.h; sourceTree = "<group>"; };
@@ -237,6 +240,8 @@
 				845B45891EC05E8200ADD03E /* DropDownCell.m */,
 				845B462D1EC16EEB00ADD03E /* MoreView.h */,
 				845B462E1EC16EEB00ADD03E /* MoreView.m */,
+				845B46301EC19C6200ADD03E /* MoreCell.h */,
+				845B46311EC19C6200ADD03E /* MoreCell.m */,
 			);
 			name = requeTableView;
 			sourceTree = "<group>";
@@ -440,6 +445,7 @@
 				A43507AA1EBF00BA0023D22F /* CategoryModel.m in Sources */,
 				845B45271EB9D44D00ADD03E /* ZZGDropView.m in Sources */,
 				A435079F1EBECBCF0023D22F /* PopoverViewCell.m in Sources */,
+				845B46321EC19C6200ADD03E /* MoreCell.m in Sources */,
 				845B45001EB970CD00ADD03E /* main.m in Sources */,
 				845B45831EC0013200ADD03E /* RerequesController.m in Sources */,
 				A43507B11EBF04390023D22F /* LeftTableViewCell.m in Sources */,

@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface MoreView : UIView
-+(instancetype)moreView;
+
 @end

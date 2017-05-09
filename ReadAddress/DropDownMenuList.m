@@ -14,6 +14,7 @@
 
 #import "DropDownMenuList.h"
 #import "DropDownCell.h"
+#import "MoreView.h"
 
 CGFloat const DropMenuContentHeight = 220.f;
 CGFloat const SureButtonHeight = 44.f;
@@ -81,11 +82,13 @@ CGFloat const SureButtonHeight = 44.f;
 /*! 记录选中的cell的用于发送请求 */
 @property (nonatomic, strong) NSMutableArray * cellSelectArry;
 
-
+/*! 更多view */
+@property (nonatomic, strong) MoreView *moreView;
 @end
 
 @implementation DropDownMenuList
 #pragma mark - lazy
+
 
 -(NSMutableArray *)selectStateArry {
     if (_selectStateArry == nil) {
@@ -249,7 +252,14 @@ CGFloat const SureButtonHeight = 44.f;
         NSInteger coloumn = self.currrntSelectedColumn - 1100;
         /*! 点击更多view */
         if (coloumn == self.titles.count - 1) {
-         
+                CGRect frame = CGRectMake(0, self.frame.size.height + self.frame.origin.y, DDMWIDTH, DDMHEIGHT);
+                self.DropDownMenuView.frame = frame;
+                [CurrentWindow addSubview:self.DropDownMenuView];
+                self.moreView = [[MoreView alloc] initWithFrame:CGRectMake(0, 0, DDMWIDTH, DDMHEIGHT - self.frame.size.height - self.frame.origin.y)];
+                self.moreView.backgroundColor = [UIColor redColor];
+                [self.DropDownMenuView addSubview:self.moreView];
+            
+            
             return;
         }
         // 1:设置当前选中的状态
@@ -354,6 +364,7 @@ CGFloat const SureButtonHeight = 44.f;
         self.cover.alpha = 0;
         [self.cover removeFromSuperview];
         [self.sureButton removeFromSuperview];
+        [self.moreView removeFromSuperview];
     }];
 }
 /**在VC里的ViewwillDisappear的时候使用*/
