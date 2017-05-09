@@ -95,7 +95,10 @@
         NSArray * contentAry = self.moreDict[titleLabel.text];
         for (NSInteger column = 0; column < contentAry.count; column++) {
             UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
-            btn.frame = CGRectMake(10, <#CGFloat y#>, <#CGFloat width#>, <#CGFloat height#>)
+            btn.frame = CGRectMake(column * 60, CGRectGetMaxY(titleLabel.frame), 60, 44);
+            [btn setTitle:contentAry[column] forState:UIControlStateNormal];
+            btn.backgroundColor = [UIColor redColor];
+            [self.contentScrollView addSubview:btn];
         }
     }
      
