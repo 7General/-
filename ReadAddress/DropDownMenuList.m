@@ -233,8 +233,6 @@ CGFloat const SureButtonHeight = 44.f;
     UIView * BottomLine = [[UIView alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(self.titleButton.frame), DDMWIDTH, 1)];
     BottomLine.backgroundColor = DDMColor(224, 224, 224);
     [self addSubview:BottomLine];
-    
-    
 }
 
 -(void)titleButtonClick:(UIButton *)sender {
@@ -246,23 +244,35 @@ CGFloat const SureButtonHeight = 44.f;
     [self removeMenu];
     
     if (sender.selected) {
-       // 1:设置当前选中的状态
-        self.selectStateArry = self.StateCellArry[self.currrntSelectedColumn - 1100];
-       
-        
         [self setupCover];
         self.DropDownMenuView.backgroundColor = DDMColor(255, 255, 255);
+        NSInteger coloumn = self.currrntSelectedColumn - 1100;
+        /*! 点击更多view */
+        if (coloumn == self.titles.count - 1) {
+         
+            return;
+        }
+        // 1:设置当前选中的状态
+        self.selectStateArry = self.StateCellArry[coloumn];
+        /*! 对应每列下面有多少行数据 */
+        NSInteger coloumCount = [self.dataSource menu:self numberOfRowsInColum:coloumn];
+        CGFloat conHeight = 0;
+        if (coloumCount >= 5) {
+            conHeight = DropMenuContentHeight - SureButtonHeight;
+        }else {
+            conHeight = 44 * coloumCount;
+        }
         
         [UIView animateWithDuration:(self.animationTime) animations:^{
-            CGRect frame = CGRectMake(0, self.frame.size.height + self.frame.origin.y, DDMWIDTH, DropMenuContentHeight);
+            CGRect frame = CGRectMake(0, self.frame.size.height + self.frame.origin.y, DDMWIDTH, conHeight + SureButtonHeight);
             self.DropDownMenuView.frame = frame;
             [CurrentWindow addSubview:self.DropDownMenuView];
-            self.leftTableView.frame = CGRectMake(0, 0, DDMWIDTH  , DropMenuContentHeight - SureButtonHeight);
+            self.leftTableView.frame = CGRectMake(0, 0, DDMWIDTH  , conHeight);
         }];
         
         /*! 添加确认button */
         self.sureButton = [UIButton buttonWithType:UIButtonTypeCustom];
-        self.sureButton.frame = CGRectMake(0, DropMenuContentHeight - SureButtonHeight, DDMWIDTH, SureButtonHeight);
+        self.sureButton.frame = CGRectMake(0, CGRectGetMaxY(self.leftTableView.frame), DDMWIDTH, SureButtonHeight);
         self.sureButton.backgroundColor = [UIColor redColor];
         [self.sureButton setTitle:@"确定" forState:UIControlStateNormal];
         [self.sureButton addTarget:self action:@selector(sureClick) forControlEvents:UIControlEventTouchUpInside];
@@ -383,7 +393,14 @@ CGFloat const SureButtonHeight = 44.f;
     
     return window;
 }
-
+/*! 还原数据 */
+-(NSMutableArray *)repleaceWithArry:(NSMutableArray *)repArry {
+    NSMutableArray * endArry = [NSMutableArray array];
+    [repArry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [endArry addObject:@"Q"];
+    }];
+    return endArry;
+}
 
 
 #pragma mark -TABLEVIEW DELEGATE
@@ -401,15 +418,32 @@ CGFloat const SureButtonHeight = 44.f;
     /*! 更新选中状态 */
     __weak typeof(self) weakSelf = self;
     [cell setStateBlock:^(UIButton *statButton) {
-        NSInteger coloum = weakSelf.currrntSelectedColumn - 1100 ;
-        if ([statButton.titleLabel.text isEqualToString:@"no"]) {
-            [statButton setTitle:@"yes" forState:UIControlStateNormal];
-            weakSelf.selectStateArry[indexPath.row] = @"L";
+        NSInteger coloum = weakSelf.currrntSelectedColumn - 1100;
+        /*! 点击不限清空选中栏目 */
+        if (indexPath.row == 0) {
+//            NSMutableArray * selectArry = weakSelf.StateCellArry[coloum];
+//            [selectArry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//                NSString * objs = (NSString *)obj;
+//                objs = @"Q";
+//            }];
+//        [weakSelf.selectStateArry enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//            NSString * items = (NSString *)obj;
+//            items = @"Q";
+//            NSLog(@"-------->%@",weakSelf.selectStateArry);
+//        }];
+            weakSelf.selectStateArry = [weakSelf repleaceWithArry:weakSelf.selectStateArry];
+            
         }else {
-            [statButton setTitle:@"no" forState:UIControlStateNormal];
-            weakSelf.selectStateArry[indexPath.row] = @"Q";
+            if ([statButton.titleLabel.text isEqualToString:@"no"]) {
+                [statButton setTitle:@"yes" forState:UIControlStateNormal];
+                weakSelf.selectStateArry[indexPath.row] = @"L";
+            }else {
+                [statButton setTitle:@"no" forState:UIControlStateNormal];
+                weakSelf.selectStateArry[indexPath.row] = @"Q";
+            }
         }
         [weakSelf.StateCellArry replaceObjectAtIndex:coloum withObject:weakSelf.selectStateArry];
+        [tableView reloadData];
     }];
     
     // 文字
