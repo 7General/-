@@ -8,8 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol MoreViewDelegae <NSObject>
 
+@optional
+-(void)sureButtonClick:(NSMutableArray *)arry;
+
+@end
 
 @interface MoreView : UIView
-
+@property (nonatomic, weak) id<MoreViewDelegae> delegate;
 @end

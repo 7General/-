@@ -45,7 +45,7 @@ CGFloat const SureButtonHeight = 44.f;
 
 
 
-@interface DropDownMenuList()<UITableViewDelegate,UITableViewDataSource>
+@interface DropDownMenuList()<UITableViewDelegate,UITableViewDataSource,MoreViewDelegae>
 
 // 标题按钮
 @property (nonatomic, strong) UIButton * titleButton;
@@ -84,11 +84,14 @@ CGFloat const SureButtonHeight = 44.f;
 
 /*! 更多view */
 @property (nonatomic, strong) MoreView *moreView;
+/*! 记录选中的button次数 */
+@property (nonatomic, assign) NSInteger  recBtnIndex;
+/*! 临时记录点击button */
+@property (nonatomic, strong) UIButton * tempSelectBtn;
 @end
 
 @implementation DropDownMenuList
 #pragma mark - lazy
-
 
 -(NSMutableArray *)selectStateArry {
     if (_selectStateArry == nil) {
@@ -144,6 +147,7 @@ CGFloat const SureButtonHeight = 44.f;
         [self.DropDownMenuView addSubview:self.leftTableView];
         self.animationTime = 0.15;
         self.titleMenuHeight = height;
+        self.recBtnIndex = 0;
     }
     return self;
 }
@@ -240,6 +244,18 @@ CGFloat const SureButtonHeight = 44.f;
 
 -(void)titleButtonClick:(UIButton *)sender {
     self.currrntSelectedColumn = sender.tag;
+    if ([self.tempSelectBtn isEqual:sender]) {
+        [self removeMenu];
+        [self resetImageViewTransform];
+        self.recBtnIndex++;
+        if (self.recBtnIndex % 2 != 0) {
+           return;
+        }
+    }
+    self.tempSelectBtn = sender;
+    
+    /*! 不同栏目点击时 取消计数 */
+    self.recBtnIndex = 0;
     
     self.titleButton.selected = NO;
     sender.selected = YES;
@@ -252,12 +268,13 @@ CGFloat const SureButtonHeight = 44.f;
         NSInteger coloumn = self.currrntSelectedColumn - 1100;
         /*! 点击更多view */
         if (coloumn == self.titles.count - 1) {
-                CGRect frame = CGRectMake(0, self.frame.size.height + self.frame.origin.y, DDMWIDTH, DDMHEIGHT);
-                self.DropDownMenuView.frame = frame;
-                [CurrentWindow addSubview:self.DropDownMenuView];
-                self.moreView = [[MoreView alloc] initWithFrame:CGRectMake(0, 0, DDMWIDTH, DDMHEIGHT - self.frame.size.height - self.frame.origin.y - 44)];
-                self.moreView.backgroundColor = [UIColor redColor];
-                [self.DropDownMenuView addSubview:self.moreView];
+            CGRect frame = CGRectMake(0, self.frame.size.height + self.frame.origin.y, DDMWIDTH, DDMHEIGHT);
+            self.DropDownMenuView.frame = frame;
+            [CurrentWindow addSubview:self.DropDownMenuView];
+            self.moreView = [[MoreView alloc] initWithFrame:CGRectMake(0, 0, DDMWIDTH, DDMHEIGHT - self.frame.size.height - self.frame.origin.y - 44)];
+            self.moreView.delegate = self;
+            self.moreView.backgroundColor = [UIColor redColor];
+            [self.DropDownMenuView addSubview:self.moreView];
             return;
         }
         // 1:设置当前选中的状态
@@ -347,8 +364,14 @@ CGFloat const SureButtonHeight = 44.f;
  *  点击了底部的遮盖，遮盖消失
  */
 - (void)coverClick {
+    self.recBtnIndex++ ;
     [self removeMenu];
     [self resetImageViewTransform];
+}
+#pragma mark -MOREVIEWDELEGATE
+-(void)sureButtonClick:(NSMutableArray *)arry {
+    [self coverClick];
+    NSLog(@"----->>>>>>>>%@",arry);
 }
 
 /**

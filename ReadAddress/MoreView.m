@@ -128,6 +128,9 @@ NSString *const TheLastSelectArry = @"LASTSEL";
     [defaules setObject:self.selectArry forKey:TheLastSelectArry];
     
     [self removeFromSuperview];
+    if (self.delegate && [self.delegate respondsToSelector:@selector(sureButtonClick:)]) {
+        [self.delegate sureButtonClick:self.selectArry];
+    }
 }
 
 -(void)dractContentView {
