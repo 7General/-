@@ -26,6 +26,7 @@
 #import "RerequesController.h"
 
 #import "UIView+UIViewUtils.h"
+#import "CellViewController.h"
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource,ZZGPopoverViewDelegate>
 
@@ -60,6 +61,7 @@
     [self.myData addObject:@"TableView联动"];
     [self.myData addObject:@"PopTableView联动"];
     [self.myData addObject:@"多个tableview复用"];
+    [self.myData addObject:@"cell侧滑显示image"];
 }
 -(void)initPopoverData {
     ZZGPopoverAction * o1 = [ZZGPopoverAction actionWithTitle:@"新增客户" forimage:[UIImage imageNamed:@"right_menu_multichat"]];
@@ -99,9 +101,24 @@
     [self.view addSubview:rightBtn1];
     
    
+    UITextField * texts = [[UITextField  alloc] initWithFrame:CGRectMake(10,SCREEN_HEIGHT - 50 , SCREEN_WIDTH - 20, 50)];
+    texts.backgroundColor = [UIColor redColor];
+    [self.view addSubview:texts];
     
     
+    UITextField * text2 = [[UITextField  alloc] initWithFrame:CGRectMake(10,SCREEN_HEIGHT - 120 , SCREEN_WIDTH - 20, 50)];
+    text2.backgroundColor = [UIColor redColor];
+    [self.view addSubview:text2];
+    
+//    [self testDevice];
+    //NSArray * arrys = @[@"1",@"2",@"4"].mutableCopy;
+//    NSLog(@"-----%@",arrys[5]);
 }
+
+
+
+
+
 -(void)btnClick:(UIButton *)sender {
 //    [self barClick:sender];
     /*! 带交表提示 正确  自动消失 */
@@ -200,6 +217,10 @@
     if (indexPath.row == 6) {
         RerequesController * req = [[RerequesController alloc] init];
         [self.navigationController pushViewController:req animated:YES];
+    }
+    if (indexPath.row == 7) {
+        CellViewController * cells = [[CellViewController alloc] init];
+        [self.navigationController pushViewController:cells animated:YES];
     }
 }
 

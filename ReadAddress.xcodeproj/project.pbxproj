@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22E802CD1EC55E3C002749C2 /* CellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E802CC1EC55E3C002749C2 /* CellViewController.m */; };
+		22E802D01EC55FDC002749C2 /* MoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E802CF1EC55FDC002749C2 /* MoreCell.m */; };
 		3F771ECDB7A1B1207189DB1F /* libPods-ReadAddress.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64655EB51638A80E357D483F /* libPods-ReadAddress.a */; };
 		845B45001EB970CD00ADD03E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B44FF1EB970CD00ADD03E /* main.m */; };
 		845B45031EB970CD00ADD03E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B45021EB970CD00ADD03E /* AppDelegate.m */; };
@@ -48,6 +50,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		22E802CB1EC55E3C002749C2 /* CellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellViewController.h; sourceTree = "<group>"; };
+		22E802CC1EC55E3C002749C2 /* CellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellViewController.m; sourceTree = "<group>"; };
+		22E802CE1EC55FDC002749C2 /* MoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreCell.h; sourceTree = "<group>"; };
+		22E802CF1EC55FDC002749C2 /* MoreCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreCell.m; sourceTree = "<group>"; };
 		25F1FF9302048927CC085EA6 /* Pods-ReadAddress.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadAddress.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReadAddress/Pods-ReadAddress.release.xcconfig"; sourceTree = "<group>"; };
 		64655EB51638A80E357D483F /* libPods-ReadAddress.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ReadAddress.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D586F71A2AC8964A7834882 /* Pods-ReadAddress.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReadAddress.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReadAddress/Pods-ReadAddress.debug.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +219,10 @@
 				A43507BF1EBF2C780023D22F /* PopTableViewController.m */,
 				845B45811EC0013200ADD03E /* RerequesController.h */,
 				845B45821EC0013200ADD03E /* RerequesController.m */,
+				22E802CB1EC55E3C002749C2 /* CellViewController.h */,
+				22E802CC1EC55E3C002749C2 /* CellViewController.m */,
+				22E802CE1EC55FDC002749C2 /* MoreCell.h */,
+				22E802CF1EC55FDC002749C2 /* MoreCell.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -486,6 +496,7 @@
 				A46AA35D1EC1F6E5005A6B9E /* UIButton+FillColor.m in Sources */,
 				A43507C01EBF2C780023D22F /* PopTableViewController.m in Sources */,
 				845B452A1EB9D8E700ADD03E /* ZZGDropCell.m in Sources */,
+				22E802D01EC55FDC002749C2 /* MoreCell.m in Sources */,
 				845B45061EB970CD00ADD03E /* ViewController.m in Sources */,
 				A43507991EBEC6A70023D22F /* ZZGPopoverView.m in Sources */,
 				A435079C1EBEC6D60023D22F /* ZZGPopoverAction.m in Sources */,
@@ -499,6 +510,7 @@
 				A43507B71EBF05FE0023D22F /* TableViewHeaderView.m in Sources */,
 				A46AA3721EC21100005A6B9E /* UIView+UIViewUtils.m in Sources */,
 				A43507AA1EBF00BA0023D22F /* CategoryModel.m in Sources */,
+				22E802CD1EC55E3C002749C2 /* CellViewController.m in Sources */,
 				845B45271EB9D44D00ADD03E /* ZZGDropView.m in Sources */,
 				A435079F1EBECBCF0023D22F /* PopoverViewCell.m in Sources */,
 				845B45001EB970CD00ADD03E /* main.m in Sources */,

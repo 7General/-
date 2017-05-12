@@ -1,12 +1,18 @@
 PODS:
   - HZAdditions (1.0.7)
+  - IQKeyboardManager (3.3.7)
+  - UMengAnalytics (4.2.4)
 
 DEPENDENCIES:
   - HZAdditions (~> 1.0.7)
+  - IQKeyboardManager
+  - UMengAnalytics
 
 SPEC CHECKSUMS:
   HZAdditions: 91078cd96d7ecf24c918590e279ff09cf3788ace
+  IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
+  UMengAnalytics: ef8d45f94c0e5771dc364cf6a5731d9d3b101da2
 
-PODFILE CHECKSUM: 5c13b712134083d0484145eb7a2fa7b2f04c3c84
+PODFILE CHECKSUM: e512520635366ae12dd47fcbab294840daaaf34f
 
 COCOAPODS: 1.2.1

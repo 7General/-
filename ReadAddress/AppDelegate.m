@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 #import "MainViewController.h"
+#import <IQKeyboardManager/IQKeyboardManager.h>
+
+#import "UMMobClick/MobClick.h"
 
 @interface AppDelegate ()
 
@@ -22,11 +25,27 @@
     UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:[[MainViewController alloc] init]];
     self.window.rootViewController = nav;//[[MainViewController alloc] init];
     [self.window makeKeyAndVisible];
-    
+    [self IQKeyboardInit];
+    [self initUmentKit];
     return YES;
 }
 
+#pragma mark - 键盘高度适配处理初始化.
+- (void)IQKeyboardInit {
+    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
+    manager.enable =YES;
+    manager.shouldResignOnTouchOutside =YES;
+    manager.shouldToolbarUsesTextFieldTintColor =YES;
+    manager.shouldPlayInputClicks = YES;
+    //控制键盘上面的Done是否显示
+    manager.enableAutoToolbar = YES;
+}
 
+-(void)initUmentKit {
+    UMConfigInstance.appKey = @"59141b5604e2052078001610";
+    [MobClick startWithConfigure:UMConfigInstance];
+    
+}
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
