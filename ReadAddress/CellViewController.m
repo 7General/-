@@ -94,6 +94,7 @@
     [self.myTableView reloadRowsAtIndexPaths:@[path] withRowAnimation:UITableViewRowAnimationNone];
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
     if ([self cellIsSelected:indexPath]) {
         return 80;
     }else {

@@ -122,7 +122,7 @@
 -(void)btnClick:(UIButton *)sender {
 //    [self barClick:sender];
     /*! 带交表提示 正确  自动消失 */
-    [self.view showHUDIndicatorViewSuccessAtCenter:@"dddddd"];
+    //[self.view showHUDIndicatorViewSuccessAtCenter:@"dddddd"];
     /*! 带角标提示 错误  自动消失 */
 //    [self.view showHUDIndicatorViewErrorAtCenter:@"dddddd"];
     /*! 提示语句，不带任何图标，自动消失 */
@@ -157,9 +157,50 @@
 ////         [self.view showHUDIndicatorLabelAtCenter:@"网络加载失败"];
 //        [self.view showHUDIndicatorViewSuccessAtCenter:@"加载成功"];
 //    });
-    
-    
+    [self showNewStatausCount:12];
 }
+
+
+
+-(void)showNewStatausCount:(int)count{
+    //创建uibutton
+    UIButton *btn =[[UIButton alloc]init];
+    [self.navigationController.view insertSubview:btn belowSubview:self.navigationController.navigationBar];
+    //设置btn属性
+    btn.userInteractionEnabled=NO;
+   
+    btn.backgroundColor = [UIColor lightGrayColor];
+    [btn setTitleColor:[UIColor orangeColor] forState:UIControlStateNormal];
+    btn.titleLabel.font=[UIFont systemFontOfSize:14];
+    if (count) {
+        NSString *title =[NSString stringWithFormat:@"共有%d条新的微博",count];
+        [btn setTitle:title forState:UIControlStateNormal];
+    }else{
+        [btn setTitle:@"没有新的微博数据" forState:UIControlStateNormal];
+    }
+    //设置按钮的frame
+    CGFloat btnH=30;
+    CGFloat btnY =64-btnH;
+    CGFloat btnX =0;
+    CGFloat btnW =self.view.frame.size.width;
+    btn.frame =CGRectMake(btnX, btnY, btnW, btnH);
+    //设置动画
+    [UIView animateWithDuration:0.7 animations:^{
+        //向下移动btn
+        btn.transform=CGAffineTransformMakeTranslation(0, btnH+1);
+    } completion:^(BOOL finished) {
+        //向上移动btn
+        [UIView animateWithDuration:0.7 delay:1.0 options:UIViewAnimationOptionCurveLinear animations:^{
+            btn.transform=CGAffineTransformIdentity;//清空transform
+        } completion:^(BOOL finished) {
+            [btn removeFromSuperview];
+        }];
+    }];
+}
+
+
+
+
 
 -(void)barClick:(UIButton *)sender {
     NSLog(@"-------");
