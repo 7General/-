@@ -1,18 +1,21 @@
 PODS:
   - HZAdditions (1.0.7)
+  - IMPTableViewEmpty (0.0.1)
   - IQKeyboardManager (3.3.7)
   - UMengAnalytics (4.2.4)
 
 DEPENDENCIES:
   - HZAdditions (~> 1.0.7)
+  - IMPTableViewEmpty (~> 0.0.1)
   - IQKeyboardManager
   - UMengAnalytics
 
 SPEC CHECKSUMS:
   HZAdditions: 91078cd96d7ecf24c918590e279ff09cf3788ace
+  IMPTableViewEmpty: c05a2cfb4f686cfa08ec6fc79470ba0715c6d3de
   IQKeyboardManager: 249c3946acf61345c18b038eb50863fe2793e3a8
   UMengAnalytics: ef8d45f94c0e5771dc364cf6a5731d9d3b101da2
 
-PODFILE CHECKSUM: e512520635366ae12dd47fcbab294840daaaf34f
+PODFILE CHECKSUM: 3f830df6cf03bbb3bda530b846eee6825ef6c9fa
 
 COCOAPODS: 1.2.1

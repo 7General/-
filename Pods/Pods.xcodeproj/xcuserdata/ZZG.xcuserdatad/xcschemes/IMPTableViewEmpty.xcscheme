@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '72DA116A330801040B656CF7E8A40300'
-               BlueprintName = 'Pods-ReadAddress'
+               BlueprintIdentifier = 'F2C00E32F78E4B3CCEBFAF5FE65D02F7'
+               BlueprintName = 'IMPTableViewEmpty'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libPods-ReadAddress.a'>
+               BuildableName = 'libIMPTableViewEmpty.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
