@@ -24,6 +24,7 @@
 
 #import "PopTableViewController.h"
 #import "RerequesController.h"
+#import "CellAnimateController.h"
 
 #import "UIView+UIViewUtils.h"
 #import "CellViewController.h"
@@ -62,6 +63,7 @@
     [self.myData addObject:@"PopTableView联动"];
     [self.myData addObject:@"多个tableview复用"];
     [self.myData addObject:@"cell侧滑显示image"];
+    [self.myData addObject:@"cell显示动画"];
 }
 -(void)initPopoverData {
     ZZGPopoverAction * o1 = [ZZGPopoverAction actionWithTitle:@"新增客户" forimage:[UIImage imageNamed:@"right_menu_multichat"]];
@@ -262,6 +264,10 @@
     if (indexPath.row == 7) {
         CellViewController * cells = [[CellViewController alloc] init];
         [self.navigationController pushViewController:cells animated:YES];
+    }
+    if (indexPath.row == 8) {
+        CellAnimateController * anima = [[CellAnimateController alloc] init];
+        [self.navigationController pushViewController:anima animated:YES];
     }
 }
 

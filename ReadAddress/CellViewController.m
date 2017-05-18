@@ -41,7 +41,6 @@
         [_arryData addObject:@"b"];
         [_arryData addObject:@"b"];
         [_arryData addObject:@"b"];
-        
         [_arryData addObject:@"a"];
         [_arryData addObject:@"b"];
         [_arryData addObject:@"b"];

@@ -9,6 +9,16 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>IMPTableViewEmpty.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>IQKeyboardManager.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>4</integer>
+		</dict>
 		<key>Pods-ReadAddress.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -17,12 +27,27 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0659B71386995AC7EE2A305F0A360EB1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>72DA116A330801040B656CF7E8A40300</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>A216E4642BB2DC20295152C8BA52E590</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>D2C4E02C78AD1DF873E21A0A9D2DE34C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F2C00E32F78E4B3CCEBFAF5FE65D02F7</key>
 		<dict>
 			<key>primary</key>
 			<true/>

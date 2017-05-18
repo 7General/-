@@ -28,6 +28,8 @@
 		845B45871EC004CF00ADD03E /* DropDownMenuList.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B45861EC004CF00ADD03E /* DropDownMenuList.m */; };
 		845B458A1EC05E8200ADD03E /* DropDownCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B45891EC05E8200ADD03E /* DropDownCell.m */; };
 		845B462F1EC16EEB00ADD03E /* MoreView.m in Sources */ = {isa = PBXBuildFile; fileRef = 845B462E1EC16EEB00ADD03E /* MoreView.m */; };
+		A4038EDB1ECDE23100755EF6 /* CellAnimateController.m in Sources */ = {isa = PBXBuildFile; fileRef = A4038EDA1ECDE23100755EF6 /* CellAnimateController.m */; };
+		A4038EDE1ECDE2F200755EF6 /* AnimateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A4038EDD1ECDE2F200755EF6 /* AnimateCell.m */; };
 		A43507991EBEC6A70023D22F /* ZZGPopoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = A43507981EBEC6A70023D22F /* ZZGPopoverView.m */; };
 		A435079C1EBEC6D60023D22F /* ZZGPopoverAction.m in Sources */ = {isa = PBXBuildFile; fileRef = A435079B1EBEC6D60023D22F /* ZZGPopoverAction.m */; };
 		A435079F1EBECBCF0023D22F /* PopoverViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = A435079E1EBECBCF0023D22F /* PopoverViewCell.m */; };
@@ -91,6 +93,10 @@
 		845B45891EC05E8200ADD03E /* DropDownCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DropDownCell.m; sourceTree = "<group>"; };
 		845B462D1EC16EEB00ADD03E /* MoreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreView.h; sourceTree = "<group>"; };
 		845B462E1EC16EEB00ADD03E /* MoreView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoreView.m; sourceTree = "<group>"; };
+		A4038ED91ECDE23100755EF6 /* CellAnimateController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellAnimateController.h; sourceTree = "<group>"; };
+		A4038EDA1ECDE23100755EF6 /* CellAnimateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellAnimateController.m; sourceTree = "<group>"; };
+		A4038EDC1ECDE2F200755EF6 /* AnimateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AnimateCell.h; sourceTree = "<group>"; };
+		A4038EDD1ECDE2F200755EF6 /* AnimateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AnimateCell.m; sourceTree = "<group>"; };
 		A43507971EBEC6A70023D22F /* ZZGPopoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZGPopoverView.h; sourceTree = "<group>"; };
 		A43507981EBEC6A70023D22F /* ZZGPopoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZGPopoverView.m; sourceTree = "<group>"; };
 		A435079A1EBEC6D60023D22F /* ZZGPopoverAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZGPopoverAction.h; sourceTree = "<group>"; };
@@ -223,6 +229,10 @@
 				22E802CC1EC55E3C002749C2 /* CellViewController.m */,
 				22E802CE1EC55FDC002749C2 /* MoreCell.h */,
 				22E802CF1EC55FDC002749C2 /* MoreCell.m */,
+				A4038ED91ECDE23100755EF6 /* CellAnimateController.h */,
+				A4038EDA1ECDE23100755EF6 /* CellAnimateController.m */,
+				A4038EDC1ECDE2F200755EF6 /* AnimateCell.h */,
+				A4038EDD1ECDE2F200755EF6 /* AnimateCell.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -512,7 +522,9 @@
 				A43507AA1EBF00BA0023D22F /* CategoryModel.m in Sources */,
 				22E802CD1EC55E3C002749C2 /* CellViewController.m in Sources */,
 				845B45271EB9D44D00ADD03E /* ZZGDropView.m in Sources */,
+				A4038EDB1ECDE23100755EF6 /* CellAnimateController.m in Sources */,
 				A435079F1EBECBCF0023D22F /* PopoverViewCell.m in Sources */,
+				A4038EDE1ECDE2F200755EF6 /* AnimateCell.m in Sources */,
 				845B45001EB970CD00ADD03E /* main.m in Sources */,
 				845B45831EC0013200ADD03E /* RerequesController.m in Sources */,
 				A43507B11EBF04390023D22F /* LeftTableViewCell.m in Sources */,
