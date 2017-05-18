@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>text</key>
+		<string>勒布朗·詹姆斯，1984年12月30日出生在美国·俄亥俄州·克里夫兰，美国男子职业篮球运动员，司职小前锋，现效力于克利夫兰骑士队。</string>
+		<key>icon</key>
+		<string>lbj.jpg</string>
+		<key>name</key>
+		<string>詹姆斯</string>
+		<key>numbers</key>
+		<string>23</string>
+		<key>states</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>text</key>
+		<string>德怀恩·韦德（Dwyane Tyrone Wade），1982年1月17日出生于美国芝加哥，美职篮运动员，司职得分后卫，绰号“闪电侠”（The Flash）。</string>
+		<key>icon</key>
+		<string>wd.jpg</string>
+		<key>name</key>
+		<string>韦德</string>
+		<key>numbers</key>
+		<string>6</string>
+		<key>states</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>text</key>
+		<string>德克·诺维茨基（Dirk Werner Nowitzki），1978年6月19日出生于德国维尔茨堡，德国职业篮球运动员，司职大前锋，效力于NBA达拉斯小牛队。</string>
+		<key>icon</key>
+		<string>nwcj.jpg</string>
+		<key>name</key>
+		<string>诺维茨基</string>
+		<key>numbers</key>
+		<string>41</string>
+		<key>states</key>
+		<integer>1</integer>
+	</dict>
+	<dict>
+		<key>text</key>
+		<string>雷·阿伦（Ray·Allen）， 1975年7月20日出生于加利福尼亚州的美熹德。美国职业篮球运动员，身高196厘米，司职得分后卫，有出色的三分球投射能力。</string>
+		<key>icon</key>
+		<string>lal.jpg</string>
+		<key>name</key>
+		<string>雷·阿伦</string>
+		<key>numbers</key>
+		<string>57</string>
+		<key>states</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>text</key>
+		<string>特雷西·麦克格雷迪（英语：Tracy McGrady，1979年5月24日－），绰号T-MAC，NBA球星文斯·卡特的远亲表弟，麦克格雷迪球风全面而飘逸，可以胜任球场三个位置，是NBA历史上最好的得分手之一，司职得分后卫、小前锋。曾七次入选全明星阵容，获得两届NBA得分王，在1997年至2004年的七年时间里曾效力于多伦多猛龙队和奥兰多魔术队，在2004-2005赛季转会到休斯敦火箭队，与来自中国的球星姚明组成姚麦组合，为广大中国球迷所熟知。</string>
+		<key>icon</key>
+		<string>md.jpg</string>
+		<key>name</key>
+		<string>特雷西·麦克格雷迪</string>
+		<key>numbers</key>
+		<string>1</string>
+		<key>states</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>text</key>
+		<string>阿伦·艾弗森，男，1975年6月7日出生，前美国NBA著名篮球运动员，曾11次入选NBA全明星阵容，曾任美国男篮梦之队队长。</string>
+		<key>icon</key>
+		<string>afs.jpg</string>
+		<key>name</key>
+		<string>阿伦·艾弗森</string>
+		<key>states</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>text</key>
+		<string>史蒂夫·纳什在1996年NBA选秀第1轮第15顺位被太阳队选中，1998年加盟小牛，[1] 2004年重回太阳，在2005、06连续两年获得常规赛MVP，[2] 2012年签约湖人。[3] 入选8届全明星阵容，3届最佳阵容一队，[4] 并获得2届全明星技巧大赛冠军，是美职篮96黄金一代的代表性人物之一</string>
+		<key>icon</key>
+		<string>ns.jpg</string>
+		<key>name</key>
+		<string>史蒂夫·纳什</string>
+		<key>states</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>text</key>
+		<string>文斯·卡特（Vince Carter）1977年1月26日出生于美国佛罗里达州代顿海滩市，美国职业篮球运动员，司职得分后卫，也能出任小前锋的位置。绰号“加拿大飞人”“半人半神”“VC”“UFO”等，被公认为NBA历史第一扣将</string>
+		<key>icon</key>
+		<string>kt.jpg</string>
+		<key>name</key>
+		<string>文斯·卡特</string>
+		<key>numbers</key>
+		<string>15</string>
+		<key>states</key>
+		<integer>0</integer>
+	</dict>
+	<dict>
+		<key>text</key>
+		<string>布雷克·格里芬2009年以选秀状元身份进入NBA，因伤导致新秀赛季推迟了一年。2010-11赛季当选最佳新秀、入选最佳新秀第一阵容；3次入选全明星阵容，2011年全明星阵容扣篮大赛上获得冠军；4次入选最佳阵容</string>
+		<key>icon</key>
+		<string>glf.jpg</string>
+		<key>name</key>
+		<string>布雷克·格里芬</string>
+		<key>states</key>
+		<integer>1</integer>
+	</dict>
+</array>
+</plist>
