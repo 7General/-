@@ -25,9 +25,11 @@
 #import "PopTableViewController.h"
 #import "RerequesController.h"
 #import "CellAnimateController.h"
+#import "CMSViewController.h"
 
 #import "UIView+UIViewUtils.h"
 #import "CellViewController.h"
+#import "ResViewController.h"
 
 @interface MainViewController ()<UITableViewDelegate,UITableViewDataSource,ZZGPopoverViewDelegate>
 
@@ -64,6 +66,8 @@
     [self.myData addObject:@"多个tableview复用"];
     [self.myData addObject:@"cell侧滑显示image"];
     [self.myData addObject:@"cell显示动画"];
+    [self.myData addObject:@"调取发送短信界面"];
+    [self.myData addObject:@"tbaleview9宫格"];
 }
 -(void)initPopoverData {
     ZZGPopoverAction * o1 = [ZZGPopoverAction actionWithTitle:@"新增客户" forimage:[UIImage imageNamed:@"right_menu_multichat"]];
@@ -102,7 +106,7 @@
     [rightBtn1 addTarget:self action:@selector(btnClick:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:rightBtn1];
     
-   
+    /*
     UITextField * texts = [[UITextField  alloc] initWithFrame:CGRectMake(10,SCREEN_HEIGHT - 50 , SCREEN_WIDTH - 20, 50)];
     texts.backgroundColor = [UIColor redColor];
     [self.view addSubview:texts];
@@ -111,6 +115,7 @@
     UITextField * text2 = [[UITextField  alloc] initWithFrame:CGRectMake(10,SCREEN_HEIGHT - 120 , SCREEN_WIDTH - 20, 50)];
     text2.backgroundColor = [UIColor redColor];
     [self.view addSubview:text2];
+     */
     
 //    [self testDevice];
     //NSArray * arrys = @[@"1",@"2",@"4"].mutableCopy;
@@ -268,6 +273,14 @@
     if (indexPath.row == 8) {
         CellAnimateController * anima = [[CellAnimateController alloc] init];
         [self.navigationController pushViewController:anima animated:YES];
+    }
+    if (indexPath.row == 9) {
+        CMSViewController * cms = [[CMSViewController alloc] init];
+        [self.navigationController pushViewController:cms animated:YES];
+    }
+    if (indexPath.row == 10) {
+        ResViewController * res = [[ResViewController alloc] init];
+        [self.navigationController pushViewController:res animated:YES];
     }
 }
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		227E6D301ED589E7007BF485 /* ResViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 227E6D2F1ED589E7007BF485 /* ResViewController.m */; };
+		227E6D331ED58CB2007BF485 /* requeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 227E6D321ED58CB2007BF485 /* requeCell.m */; };
+		22957A011ED1743900321EED /* CMSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22957A001ED1743900321EED /* CMSViewController.m */; };
 		22E802CD1EC55E3C002749C2 /* CellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E802CC1EC55E3C002749C2 /* CellViewController.m */; };
 		22E802D01EC55FDC002749C2 /* MoreCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 22E802CF1EC55FDC002749C2 /* MoreCell.m */; };
 		3F771ECDB7A1B1207189DB1F /* libPods-ReadAddress.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 64655EB51638A80E357D483F /* libPods-ReadAddress.a */; };
@@ -52,6 +55,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		227E6D2E1ED589E7007BF485 /* ResViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResViewController.h; sourceTree = "<group>"; };
+		227E6D2F1ED589E7007BF485 /* ResViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResViewController.m; sourceTree = "<group>"; };
+		227E6D311ED58CB2007BF485 /* requeCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = requeCell.h; sourceTree = "<group>"; };
+		227E6D321ED58CB2007BF485 /* requeCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = requeCell.m; sourceTree = "<group>"; };
+		229579FF1ED1743900321EED /* CMSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMSViewController.h; sourceTree = "<group>"; };
+		22957A001ED1743900321EED /* CMSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMSViewController.m; sourceTree = "<group>"; };
 		22E802CB1EC55E3C002749C2 /* CellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CellViewController.h; sourceTree = "<group>"; };
 		22E802CC1EC55E3C002749C2 /* CellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CellViewController.m; sourceTree = "<group>"; };
 		22E802CE1EC55FDC002749C2 /* MoreCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoreCell.h; sourceTree = "<group>"; };
@@ -233,6 +242,12 @@
 				A4038EDA1ECDE23100755EF6 /* CellAnimateController.m */,
 				A4038EDC1ECDE2F200755EF6 /* AnimateCell.h */,
 				A4038EDD1ECDE2F200755EF6 /* AnimateCell.m */,
+				229579FF1ED1743900321EED /* CMSViewController.h */,
+				22957A001ED1743900321EED /* CMSViewController.m */,
+				227E6D2E1ED589E7007BF485 /* ResViewController.h */,
+				227E6D2F1ED589E7007BF485 /* ResViewController.m */,
+				227E6D311ED58CB2007BF485 /* requeCell.h */,
+				227E6D321ED58CB2007BF485 /* requeCell.m */,
 			);
 			name = Main;
 			sourceTree = "<group>";
@@ -505,6 +520,7 @@
 				845B45791EBC188700ADD03E /* SheetTopViewController.m in Sources */,
 				A46AA35D1EC1F6E5005A6B9E /* UIButton+FillColor.m in Sources */,
 				A43507C01EBF2C780023D22F /* PopTableViewController.m in Sources */,
+				227E6D331ED58CB2007BF485 /* requeCell.m in Sources */,
 				845B452A1EB9D8E700ADD03E /* ZZGDropCell.m in Sources */,
 				22E802D01EC55FDC002749C2 /* MoreCell.m in Sources */,
 				845B45061EB970CD00ADD03E /* ViewController.m in Sources */,
@@ -515,6 +531,7 @@
 				845B45761EBC15B400ADD03E /* WakeAddressViewController.m in Sources */,
 				845B458A1EC05E8200ADD03E /* DropDownCell.m in Sources */,
 				A43507B41EBF04460023D22F /* RightTableViewCell.m in Sources */,
+				22957A011ED1743900321EED /* CMSViewController.m in Sources */,
 				845B45871EC004CF00ADD03E /* DropDownMenuList.m in Sources */,
 				845B462F1EC16EEB00ADD03E /* MoreView.m in Sources */,
 				A43507B71EBF05FE0023D22F /* TableViewHeaderView.m in Sources */,
@@ -532,6 +549,7 @@
 				A43507A21EBEFDA60023D22F /* TableViewController.m in Sources */,
 				A43507C31EBF2D6F0023D22F /* PopTableView.m in Sources */,
 				A43507BC1EBF08380023D22F /* NSObject+Property.m in Sources */,
+				227E6D301ED589E7007BF485 /* ResViewController.m in Sources */,
 				845B451A1EB970FA00ADD03E /* MainViewController.m in Sources */,
 				A46AA36D1EC21100005A6B9E /* MBProgressHUD.m in Sources */,
 			);
