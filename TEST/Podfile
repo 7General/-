@@ -1,0 +1,5 @@
+platform:ios,'7.0'
+target “cHeathKit” do
+pod 'HZAdditions', '~> 1.0.7'
+
+end
