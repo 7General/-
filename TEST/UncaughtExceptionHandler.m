@@ -75,7 +75,7 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
       otherButtonTitles:NSLocalizedString(@"Continue", nil), nil];
     [alert show];
     
-    
+    /*
     CFRunLoopRef runLoop = CFRunLoopGetCurrent();
     CFArrayRef allModes = CFRunLoopCopyAllModes(runLoop);
     
@@ -88,6 +88,9 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
     }
     
     CFRelease(allModes);
+     */
+    [[NSRunLoop currentRunLoop] addPort:[NSPort port] forMode:NSDefaultRunLoopMode];
+    [[NSRunLoop currentRunLoop] run];
     
     NSSetUncaughtExceptionHandler(NULL);
     signal(SIGABRT, SIG_DFL);
@@ -105,6 +108,9 @@ const NSInteger UncaughtExceptionHandlerReportAddressCount = 5;
     {
         [exception raise];
     }
+    
+    
+  
     
 }
 
